@@ -19,6 +19,9 @@ exports.htmlTop = '<head> ' +
 '.result-box-good{ ' +
 'background-color:#d6ff99; ' +
 '}'+
+'h1{ ' +
+'color:#ffffff; ' +
+'}'+
 '.result-box-fail{ ' +
 'background-color:#ffbfac; ' +
 '}'+
