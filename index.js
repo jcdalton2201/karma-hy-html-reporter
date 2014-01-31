@@ -18,10 +18,10 @@ var hyHtmlReporter = function (baseReporterDecorator, config, logger, helper, fo
     var self = this;
     var firstRun = true;
     var reporterConfig = config.htmlAngularReport || {};
-    var folder = config.reportFolder || 'htmlReport';
+    var folder = reporterConfig.reportFolder || 'htmlReport';
     var baseFolder = config.basePath + '/' + folder;
     var outputFile = helper.normalizeWinPath(path.resolve(baseFolder, reporterConfig.outputFile|| 'htmlReport.html'));
-    var reportTitle = config.reportTitle || 'Javascript Unit Tests';
+    var reportTitle = reporterConfig.reportTitle || 'Javascript Unit Tests';
     
     function formatTimeInterval (time) {
         var mins = Math.floor(time / 60000);
