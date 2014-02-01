@@ -1,7 +1,7 @@
 karma-hy-html-reporter
 ======================
 
-a karma reporter that produce a simple angular page for display
+a karma reporter that produce a simple angular page for display.  Click on the suite card to see all of the tests.
 
 ## Installation
 add karma-hy-html-reporter to your `package.json`. 
