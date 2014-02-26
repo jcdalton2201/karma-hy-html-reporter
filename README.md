@@ -15,7 +15,7 @@ add karma-hy-html-reporter to your `package.json`.
 ```
 this can be simplified by running the command:
 ```bash
-npm install karma-hy-heml-reporter --save-dev
+npm install karma-hy-html-reporter --save-dev
 ```
 
 ##Configuration
@@ -26,7 +26,7 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 
     // reporters configuration
-    reporters: ['hy-reporter'],
+    reporters: ['hy-html'],
   });
 };
 ```
@@ -49,7 +49,7 @@ module.exports = function(config) {
 };
 ```
 ##Release History
-### v0.0.3
+### v0.0.4
 *first release
 
 ##Author
