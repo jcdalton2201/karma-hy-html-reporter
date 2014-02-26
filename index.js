@@ -55,6 +55,7 @@ var hyHtmlReporter = function (baseReporterDecorator, config, logger, helper, fo
      */
     function specComplete (browser, result) {
         var suiteItem = self.suite[result.suite[0]];
+        self.allResults.total++;
         if(!suiteItem){
           suiteItem =self.suite[result.suite[0]] = {};
           suiteItem.name = result.suite[0];
@@ -73,9 +74,13 @@ var hyHtmlReporter = function (baseReporterDecorator, config, logger, helper, fo
         };
         if(test.success){
             suiteItem.success++;
+            self.allResults.success++;
+
         }
         if(!test.success){
             suiteItem.error++;
+            self.allResults.fail++;
+
         }
         if(test.skipped){
             suiteItem.skipped++;
@@ -94,7 +99,11 @@ var hyHtmlReporter = function (baseReporterDecorator, config, logger, helper, fo
 
     self.onRunStart = function (browsers) {
         self.suite = {};
-        self.allResults = {};
+        self.allResults = {
+            total:0,
+            success:0,
+            fail:0
+        };
         self.totalTime = 0;
         self.numberOfSlowTests = 0;
         self.numberOfSkippedTests = 0;
@@ -103,8 +112,10 @@ var hyHtmlReporter = function (baseReporterDecorator, config, logger, helper, fo
 
     self.onRunComplete = function (browsers, results) {
         var page = template.htmlTop;
+        var total = '$scope.totals = ' + JSON.stringify(self.allResults) + ' ; ';
         page = page + JSON.stringify(self.suite) + ' ; ';
         page = page + '$scope.reportTitle = \'' + reportTitle + '\' ; ';
+        page = page + total;
         page = page + template.htmlBottom;
         helper.mkdirIfNotExists(path.dirname(outputFile), function (){
             fs.writeFile(outputFile, page, function (error){

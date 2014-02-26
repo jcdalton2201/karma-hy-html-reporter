@@ -48,6 +48,11 @@ exports.htmlTop = '<head> ' +
 '<body ng-app="reportApp"> ' +
 '<div class="container" ng-controller="ReportCtrl"> ' +
 '<h1>{{reportTitle}}</h1>' +
+'<div> '+
+'<span style=\'color:white; margin:5px\'; > Total Tests: {{totals.total}} </span>' +
+'<span style=\'color:green; margin:5px\'; > Total Success: {{totals.success}} </span>' +
+'<span style=\'color:red; margin:5px\'; > Total Failed: {{totals.fail}} </span>' +
+'</div>' +
 '<div class="row"> ' +
 '<div class="col-md-2 result-box" ng-class="{\'result-box-fail\': result.error > 0}" ng-repeat="result in results"> ' +
 '<div class="row result-content" ng-class="{\'result-content-fail\': result.error > 0, \'result-content-good\': result.error < 1}" ng-click="showDetail(result.name)"> ' +
