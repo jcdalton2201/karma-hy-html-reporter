@@ -98,6 +98,7 @@ var hyHtmlReporter = function (baseReporterDecorator, config, logger, helper, fo
     };
 
     self.onRunStart = function (browsers) {
+        self._browsers = [];
         self.suite = {};
         self.allResults = {
             total:0,
@@ -108,6 +109,11 @@ var hyHtmlReporter = function (baseReporterDecorator, config, logger, helper, fo
         self.numberOfSlowTests = 0;
         self.numberOfSkippedTests = 0;
         self.numberOfBrowsers = (browsers || []).length;
+    };
+
+    self.onBrowsersStart = function (browsers) {
+        self._browsers.push(browsers);
+        self.numberOfBrowsers += 1;
     };
 
     self.onRunComplete = function (browsers, results) {
