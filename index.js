@@ -116,10 +116,22 @@ var hyHtmlReporter = function (baseReporterDecorator, config, logger, helper, fo
         self.numberOfBrowsers += 1;
     };
 
+    self.getSuiteArray = function (){
+        var tempArray = [];
+        var prop;
+        for (prop in self.suite) {
+            if (self.suite.hasOwnProperty(prop)) {
+                tempArray.push(self.suite[prop]);
+            }
+        }
+        return tempArray;
+    };
+
     self.onRunComplete = function (browsers, results) {
         var page = template.htmlTop;
         var total = '$scope.totals = ' + JSON.stringify(self.allResults) + ' ; ';
-        page = page + JSON.stringify(self.suite) + ' ; ';
+        var suiteArray = self.getSuiteArray();
+        page = page + JSON.stringify(suiteArray) + ' ; ';
         page = page + '$scope.reportTitle = \'' + reportTitle + '\' ; ';
         page = page + total;
         page = page + template.htmlBottom;
