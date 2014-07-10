@@ -1,7 +1,7 @@
 {
   "name": "karma-hy-html-reporter",
   "description": "a karma reporter that produce a simple angular page for display",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "homepage": "https://github.com/jcdalton2201/karma-hy-html-reporter",
   "author": {
     "name": "Jason Dalton",
@@ -36,7 +36,7 @@
     "grunt-contrib-jshint": "~0.7.2",
     "grunt-karma": "~0.6.2",
     "karma-detect-browsers": "~0.1.2",
-    "grunt-bump": "0.0.13"
+    "grunt-bump": "0.0.14"
   },
   "dependencies": {
     "chalk": "~0.4.0"

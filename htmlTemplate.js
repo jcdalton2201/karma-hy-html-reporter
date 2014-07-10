@@ -53,9 +53,14 @@ exports.htmlTop = '<head> ' +
 '<span style=\'color:green; margin:5px\'; > Total Success: {{totals.success}} </span>' +
 '<span style=\'color:red; margin:5px\'; > Total Failed: {{totals.fail}} </span>' +
 '</div>' +
+'<div>'+
+'<span style=\'color:white; margin:5px\'>Filter Tests <input ng-model=\'searchText.name\'></span>'+
+'<span style=\'color:white; margin:5px\'> Show Successful Specs<input type="checkbox" ng-model=\'showSpec.success\'/></span>'+
+'<span style=\'color:white; margin:5px\'> Show Error Specs<input type="checkbox" ng-model=\'showSpec.error\'/></span>'+
+'</div>'+
 '<div class="row"> ' +
-'<div class="col-md-2 result-box" ng-class="{\'result-box-fail\': result.error > 0}" ng-repeat="result in results"> ' +
-'<div class="row result-content" ng-class="{\'result-content-fail\': result.error > 0, \'result-content-good\': result.error < 1}" ng-click="showDetail(result.name)"> ' +
+'<div class="col-md-2 result-box" ng-class="{\'result-box-fail\': result.error > 0}" ng-repeat="result in results|filter:searchText"> ' +
+'<div class="row result-content" ng-class="{\'result-content-fail\': result.error > 0, \'result-content-good\': result.error < 1}" ng-click="showDetail($index)"> ' +
 '<div class="col-md-12" style="border-bottom: 1px solid"> ' +
 '<div><h3>Suite:</h3> <b>{{result.name}}</b></div> ' +
 '<div>{{test}}</div> ' +
@@ -79,7 +84,7 @@ exports.htmlTop = '<head> ' +
 '</div> ' +
 '<div class="modal-body"> ' +
 '<ul class="list-unstyled"> ' +
-'<li ng-repeat="item in detail.tests"> ' +
+'<li ng-repeat="item in detail.tests|filter:filterItem"> ' +
 '<span class="label " ng-class="{\'label-success\': item.success, \'label-danger\': !item.success}"> {{item.description}} </span> ' +
 '</li> ' +
 '</ul> ' +
@@ -103,6 +108,19 @@ exports.htmlTop = '<head> ' +
 
 
 exports.htmlBottom = '$scope.detail = []; '+
+'$scope.showSpec = { '+
+'success:true, '+
+'error:true '+
+'}; '+
+'$scope.filterItem = function (elem){ '+
+'if(elem.success & $scope.showSpec.success){ '+
+'return true; '+
+'} '+
+'if(!elem.success & $scope.showSpec.error){ '+
+'return true; '+
+'} '+
+'return false; '+
+'}; '+
 '$scope.showDetail = function (id){ '+
 'var one = document.body.querySelector(\'div#detailModal\'); '+
 'angular.element(\'div#detailModal\').modal(\'show\'); '+
