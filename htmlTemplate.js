@@ -53,7 +53,7 @@ exports.htmlTop = '<head> ' +
 '<span style=\'color:green; margin:5px\'; > Total Success: {{totals.success}} </span>' +
 '<span style=\'color:red; margin:5px\'; > Total Failed: {{totals.fail}} </span>' +
 '</div>' +
-'<div>'+
+'<div style="margin-bottom: 15px;">'+
 '<span style=\'color:white; margin:5px\'>Filter Tests <input ng-model=\'searchText.name\'></span>'+
 '<span style=\'color:white; margin:5px\'> Show Successful Specs<input type="checkbox" ng-model=\'showSpec.success\'/></span>'+
 '<span style=\'color:white; margin:5px\'> Show Error Specs<input type="checkbox" ng-model=\'showSpec.error\'/></span>'+
@@ -81,10 +81,11 @@ exports.htmlTop = '<head> ' +
 '<div class="modal-content"> ' +
 '<div class="modal-header"> ' +
 '<span>{{detail.name}}</span> ' +
+'<div><span>Filter Specs <input ng-model=\'filterSpec\'><span></div>' +
 '</div> ' +
 '<div class="modal-body"> ' +
 '<ul class="list-unstyled"> ' +
-'<li ng-repeat="item in detail.tests|filter:filterItem"> ' +
+'<li ng-repeat="item in detail.tests|filter:filterItem|filter:filterSpec"> ' +
 '<span class="label " ng-class="{\'label-success\': item.success, \'label-danger\': !item.success}"> {{item.description}} </span> ' +
 '</li> ' +
 '</ul> ' +
