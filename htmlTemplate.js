@@ -81,10 +81,11 @@ exports.htmlTop = '<head> ' +
 '<div class="modal-content"> ' +
 '<div class="modal-header"> ' +
 '<span>{{detail.name}}</span> ' +
+'<div><span>Filter Specs <input ng-model=\'filterSpec\'><span></div>' +
 '</div> ' +
 '<div class="modal-body"> ' +
 '<ul class="list-unstyled"> ' +
-'<li ng-repeat="item in detail.tests|filter:filterItem"> ' +
+'<li ng-repeat="item in detail.tests|filter:filterItem|filter:filterSpec"> ' +
 '<span class="label " ng-class="{\'label-success\': item.success, \'label-danger\': !item.success}"> {{item.description}} </span> ' +
 '</li> ' +
 '</ul> ' +
