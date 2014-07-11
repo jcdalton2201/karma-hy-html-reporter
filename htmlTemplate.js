@@ -102,7 +102,7 @@ exports.htmlTop = '<head> ' +
 '<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> ' +
 '<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script> ' +
 '<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script> ' +
-'<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script> ' +
+'<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script> ' +
 '<script type="text/javascript"> ' +
 'angular.module("reportApp",[]).controller("ReportCtrl", function ($scope) { ' +
 '$scope.results = ';

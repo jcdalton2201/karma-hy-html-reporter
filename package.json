@@ -1,7 +1,7 @@
 {
   "name": "karma-hy-html-reporter",
   "description": "a karma reporter that produce a simple angular page for display",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "homepage": "https://github.com/jcdalton2201/karma-hy-html-reporter",
   "author": {
     "name": "Jason Dalton",

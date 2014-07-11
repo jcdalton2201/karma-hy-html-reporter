@@ -49,7 +49,7 @@ module.exports = function(config) {
 };
 ```
 ##Release History
-### v0.0.7
+### v0.0.8
 *first release
 
 ##Author
