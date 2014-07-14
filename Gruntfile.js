@@ -31,6 +31,11 @@ module.exports = function(grunt) {
     nodeunit: {
       files: ['test/**/*_test.js']
     },
+    publish: {
+        main: {
+          src: ['./']
+        }
+    },
     bump: {
       options: {
         files: ['package.json'],
@@ -42,7 +47,7 @@ module.exports = function(grunt) {
         tagName: 'v%VERSION%',
         tagMessage: 'Version %VERSION%',
         push: true,
-        pushTo: 'master'
+        pushTo: 'origin'
       }
     },
     watch: {
@@ -61,6 +66,6 @@ module.exports = function(grunt) {
   // Default task.
   grunt.registerTask('default', ['jshint', 'nodeunit']);
 
-  grunt.registerTask('release',['bump','publish']);
+  grunt.registerTask('release',['bump','publish:main']);
 
 };
