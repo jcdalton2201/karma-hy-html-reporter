@@ -48,6 +48,13 @@ module.exports = function(config) {
   });
 };
 ```
+
+##Screenshots
+
+![Full Page](/fullPage.png)
+
+![Popup](/popup.png)
+
 ##Release History
 ### v0.0.8
 *first release
