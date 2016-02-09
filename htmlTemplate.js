@@ -1,4 +1,5 @@
 exports.htmlTop = '<head> ' +
+'<meta charset="utf-8">' +
 '<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"> ' +
 '<style type="text/css"> ' +
 'body { ' +
